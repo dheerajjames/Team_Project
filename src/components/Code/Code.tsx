@@ -8,10 +8,20 @@ const CodeSnippet = () => {
         borderRadius,
         borderWidth
     } = useSelector((state: RootState) => state.card);
-    const [codeSnippet, setCodeSnippet] = useState(`border-width: ${borderWidth} \nborder-radius: ${borderRadius}`);
+    const [codeSnippet, setCodeSnippet] = useState(
+                                                `.cardContainer{\n
+                                                \tborder-width: ${borderWidth}px
+                                                \tborder-radius: ${borderRadius}px
+                                                }
+                                            `);
 
     useEffect(()=>{
-        setCodeSnippet(`border-width: ${borderWidth}px \nborder-radius: ${borderRadius}px`)
+        setCodeSnippet(
+            `.cardContainer{
+            \tborder-width: ${borderWidth}px
+            \tborder-radius: ${borderRadius}px
+            }
+        `)
     }, [borderRadius, borderWidth]);
 
     // console.log(codeSnippet)
@@ -22,7 +32,7 @@ const CodeSnippet = () => {
                 className="code"
                 name="codeSnippet" 
                 id="codeSnippet" 
-                cols={30} 
+                cols={40} 
                 rows={10}
                 value={codeSnippet}
                 readOnly

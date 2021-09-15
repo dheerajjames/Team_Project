@@ -8,9 +8,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Card />
-        <Input />
-        <CodeSnippet />
+        <div className="playground">
+          <Card />
+          <Input />
+        </div>
+        <div>
+          <CodeSnippet />
+        </div>
       </header>
     </div>
   );
