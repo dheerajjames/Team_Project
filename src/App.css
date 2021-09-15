@@ -16,14 +16,19 @@
 .App-header {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  column-gap: 2.5rem;
 }
 
 .App-link {
   color: rgb(112, 76, 182);
+}
+
+.code{
+  font-family: monospace;
 }
 
 @keyframes App-logo-float {
