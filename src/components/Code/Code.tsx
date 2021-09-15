@@ -11,7 +11,7 @@ const CodeSnippet = () => {
     const [codeSnippet, setCodeSnippet] = useState(`border-width: ${borderWidth} \nborder-radius: ${borderRadius}`);
 
     useEffect(()=>{
-        setCodeSnippet(`border-width: ${borderWidth} \nborder-radius: ${borderRadius}`)
+        setCodeSnippet(`border-width: ${borderWidth}px \nborder-radius: ${borderRadius}px`)
     }, [borderRadius, borderWidth]);
 
     // console.log(codeSnippet)
