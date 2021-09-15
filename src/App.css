@@ -20,10 +20,27 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  row-gap: 2.5rem;
+}
+
+.playground{
+  display: flex;
+  column-gap: 2.5rem;
+
 }
 
 .App-link {
   color: rgb(112, 76, 182);
+}
+
+.code{
+  font-family:'Consolas', monospace;
+  font-size: 15px;
+  padding: 1em;
+  line-height: 1.5;
+  white-space: pre;
+  overflow: wrap;
+
 }
 
 @keyframes App-logo-float {
