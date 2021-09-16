@@ -1,0 +1,4 @@
+as the active component changes, the inputs should set to the active component's initial state
+
+initial state of input to be exported and used as default value.
+initial state input = defaultValue of active component
