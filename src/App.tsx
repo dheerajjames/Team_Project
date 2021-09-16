@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Modal from './app/components/Modal/Modal';
+import Modal from './components/Modal/Modal';
 import Card from './components/Card/Card';
 import CodeSnippet from './components/Code/Code';
 import Input from './components/Input/Input';

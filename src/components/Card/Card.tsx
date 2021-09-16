@@ -4,10 +4,26 @@ import { RootState } from '../../app/store';
 import styles from './Card.module.css';
 
 const Card: React.FC = () => {
-    const [inlineStyle, setInlineStyle] = useState({borderRadius: "", borderWidth: ""})
+    const [inlineStyle, setInlineStyle] = useState({
+        borderRadius: "",
+        borderWidth: "" ,
+        borderStyles:"",
+        width:"",
+        height:"",
+        color:"",
+        backgroundColor:"",
+        boxShadow:""
+    })
     const {
         borderRadius,
-        borderWidth
+        borderWidth,
+        borderStyles,
+        width,
+        height,
+        backgroundColor,
+        color,
+        boxShadowHorizontal,
+        boxShadowVertical
     } = useSelector((state: RootState) => state.card);
     // inlineStyle = {
     //     borderRadius: borderRadius+'px',
@@ -15,10 +31,16 @@ const Card: React.FC = () => {
     // };
     useEffect(()=>{
         setInlineStyle({
-            borderRadius: borderRadius+'px',
-            borderWidth: borderWidth+'px'
+            borderRadius: borderRadius+"px",
+            borderWidth: borderWidth+"px",
+            borderStyles:borderStyles+"px",
+            width:width+"rem",
+            height:height+"rem",
+            color:color,
+            backgroundColor:backgroundColor,
+            boxShadow:boxShadowHorizontal+"px" + " " + boxShadowVertical+"px" ,
         })
-    }, [borderRadius, borderWidth]);
+    }, [borderRadius, borderWidth,borderStyles,boxShadowVertical,boxShadowHorizontal,height,width,color,backgroundColor]);
 
     // console.log(inlineStyle);
 
