@@ -4,6 +4,7 @@ import { RootState } from '../../app/store';
 import styles from './Card.module.css';
 
 const Card: React.FC = () => {
+
     const [inlineStyle, setInlineStyle] = useState({borderRadius: "", borderWidth: ""})
     const {
         borderRadius,

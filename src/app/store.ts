@@ -1,9 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import cardReducer from '../features/card/cardSlice';
+import { activeCompReducer } from '../features/activeCompState/activeCompStateSlice';
+import {cardReducer, buttonReducer} from '../features/card/cardSlice';
 
 export const store = configureStore({
   reducer: {
-    card: cardReducer
+    card: cardReducer,
+    button: buttonReducer,
+    activeComp: activeCompReducer
   },
 });
 

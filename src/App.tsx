@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-import Card from './components/Card/Card';
+// import ActiveComponentColumn from './components/ActiveComponentColumn/ActiveComponentColumn';
+// import Card from './components/Card/Card';
 import CodeSnippet from './components/Code/Code';
+import { ComponentColumn } from './components/ComponentsColumn/ComponentsColumn';
 import Input from './components/Input/Input';
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="playground">
-          <Card />
+          <ComponentColumn />
           <Input />
         </div>
         <div>
