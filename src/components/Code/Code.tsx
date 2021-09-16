@@ -6,12 +6,26 @@ import { RootState } from '../../app/store';
 const CodeSnippet = () => {
     const {
         borderRadius,
-        borderWidth
+        borderWidth,
+        borderStyles,
+        width,
+        height,
+        color,
+        backgroundColor,
+        boxShadowHorizontal,
+        boxShadowVertical
+
     } = useSelector((state: RootState) => state.card);
     const [codeSnippet, setCodeSnippet] = useState(
                                                 `.cardContainer{\n
                                                 \tborder-width: ${borderWidth}px
                                                 \tborder-radius: ${borderRadius}px
+                                                \tborder-style: ${borderStyles}px
+                                                \tcolor: ${color}
+                                                \tbackground-color: ${backgroundColor}
+                                                \theight: ${height}rem
+                                                \twidth: ${width}rem
+                                                \tbox-shadow: ${boxShadowHorizontal}px  ${boxShadowVertical}px 
                                                 }
                                             `);
 
@@ -20,9 +34,15 @@ const CodeSnippet = () => {
             `.cardContainer{
             \tborder-width: ${borderWidth}px
             \tborder-radius: ${borderRadius}px
+            \tborder-style: ${borderStyles}px
+            \tcolor: ${color}
+            \tbackground-color: ${backgroundColor}
+            \theight: ${height}rem
+            \twidth: ${width}rem
+            \tbox-shadow: ${boxShadowHorizontal}px  ${boxShadowVertical}px 
             }
         `)
-    }, [borderRadius, borderWidth]);
+    }, [borderRadius, borderWidth,borderStyles,boxShadowHorizontal,boxShadowVertical,color,backgroundColor,height,width]);
 
     // console.log(codeSnippet)
 

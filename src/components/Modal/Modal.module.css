@@ -1,0 +1,64 @@
+.overlay{
+    height:100%;
+    width:100%;
+    z-index: 9;
+}
+
+.container{
+    height:30%;
+    width:35%;
+    border:1px solid black;
+    margin:auto;
+    padding:1%;
+}
+
+.header{
+    height:5%;
+    border-bottom: 1px solid grey;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.title{
+    margin-left: 40%;
+}
+
+.icon{
+    margin-bottom: 2.5rem;
+}
+
+.body{
+    height:10rem;
+    border-bottom:1px solid grey
+}
+
+.footer{
+   display: flex;
+   justify-content: flex-end;
+}
+
+.close{
+    height:2rem;
+    width:4rem;
+    margin-right:2rem;
+    font-size: 1.1rem;
+    color:white;
+    background-color: darkgray;
+    border:none;
+    border-radius: 5px;
+    
+}
+
+.save{
+    height:2rem;
+    width:8rem;
+    font-size: 1.1rem;
+    color:white;
+    background-color: rgb(28, 28, 196);
+    border:none;
+    border-radius: 5px;
+
+}
+
+
