@@ -1,3 +1,4 @@
 textarea{
     white-space: pre-line;
+    width: fit-content;
 }
