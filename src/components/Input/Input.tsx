@@ -88,7 +88,7 @@ const Input: React.FC = () => {
                     step="1"
                     defaultValue={initialState?.borderRadius}
                     onChange={changeHandler}
-                    value={inputSlider}
+                    value={inputSlider.borderRadius}
                 />
                 <label htmlFor="borderRadius">Border Width</label>
                 <input 
