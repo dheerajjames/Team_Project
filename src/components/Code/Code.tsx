@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { RootState } from '../../app/store';
 // import styles from './Code.module.css';
 
 const CodeSnippet = () => {
-    const codeContent = useSelector((state: RootState) => state.card);
-    
+    const activeComponent=useSelector((state: RootState)=>state.activeComp)
+    const codeContent = useSelector((state: RootState) => state.card); 
+ 
     const [codeSnippet, setCodeSnippet] = useState(
                         `.container{
                             border-width: ${codeContent.customStyle.borderWidth}px

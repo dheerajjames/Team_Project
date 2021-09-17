@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { BUTTON, CARD } from "../../app/componentConstants";
+import { BUTTON, CARD , MODAL} from "../../app/componentConstants";
 
 
 export const cardInitialState = {
@@ -31,6 +31,22 @@ export const buttonInitialState = {
     }
 }
 
+export const modalInitialState = {
+    
+    customStyle:{
+        borderRadius: '0',
+        borderWidth: '1',
+        borderStyles:"solid",
+        width:40,
+        height:"fit-content",
+        color:"black",
+        backgroundColor:"white",
+        boxShadowHorizontal:0,
+        boxShadowVertical:0,
+    }
+}
+
+
 
 const createComponentSlice = (config:{name: string, initialState: any}) => {
     let {name, initialState} = config
@@ -47,12 +63,18 @@ const createComponentSlice = (config:{name: string, initialState: any}) => {
 
 export const cardSlice = createComponentSlice({name: CARD, initialState: cardInitialState});
 export const buttonSlice = createComponentSlice({name: BUTTON, initialState: buttonInitialState});
+export const modalSlice = createComponentSlice({name: MODAL, initialState: modalInitialState});
+
 
 
 export const cardActions = cardSlice.actions;
 export const buttonActions = buttonSlice.actions;
+export const modalActions = modalSlice.actions;
+
 
 // export default cardSlice.reducer;
 export const cardReducer = cardSlice.reducer;
 export const buttonReducer = buttonSlice.reducer;
+export const modalReducer = modalSlice.reducer;
+
 
