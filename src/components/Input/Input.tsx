@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BUTTON, CARD } from '../../app/componentConstants';
+import { BUTTON, CARD, MODAL } from '../../app/componentConstants';
 import { RootState } from '../../app/store';
 
-import { buttonActions, buttonInitialState, cardActions, cardInitialState } from '../../features/card/cardSlice';
+import { buttonActions, buttonInitialState, cardActions, cardInitialState ,modalActions, modalInitialState} from '../../features/card/cardSlice';
 // import { setBackgroundColor, setBorderRadius, setBorderStyles, setBorderWidth, setBoxShadowHorizontal, setBoxShadowVertical, setColor, setHeight, setWidth } from '../../features/card/cardSlice';
 
 import styles from './Input.module.css'
@@ -15,6 +15,8 @@ const selectInitialState = (activeComp:any) => {
             return {...cardInitialState.customStyle};
         case BUTTON:
             return {...buttonInitialState.customStyle};
+        case MODAL:
+            return {...modalInitialState.customStyle};
         default:
             console.log('error')
     }
@@ -27,6 +29,8 @@ const selectActiveCompActions = (activeComp: any) => {
             return cardActions
         case BUTTON:
             return buttonActions;
+        case MODAL:
+            return modalActions;
         default:
             console.log('error')
     }
@@ -88,7 +92,7 @@ const Input: React.FC = () => {
                     step="1"
                     defaultValue={initialState?.borderRadius}
                     onChange={changeHandler}
-                    value={inputSlider}
+                    value={inputSlider.borderRadius}
                 />
                 <label htmlFor="borderRadius">Border Width</label>
                 <input 

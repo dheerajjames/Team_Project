@@ -1,6 +1,7 @@
-import { BUTTON, CARD } from "../../app/componentConstants";
+import { BUTTON, CARD, MODAL } from "../../app/componentConstants";
 import Button from "../Button/Button";
 import Card from "../Card/Card";
+import Modal from "../Modal/Modal";
 
 const components = new Map();
 
@@ -16,13 +17,19 @@ components.set(BUTTON, {
     mappedComponent: Button
 });
 
+components.set(MODAL, {
+    id: MODAL,
+    content: 'Modal',
+    mappedComponent: Modal
+});
+
 const initialData = {
     components,
     columns: {
         'componentColumn': {
             id: 'componentColumn',
             title: 'Components',
-            componentIDs: [CARD, BUTTON]
+            componentIDs: [CARD, BUTTON, MODAL]
         },
         'activeComponent': {
             id: 'activeComponent',
