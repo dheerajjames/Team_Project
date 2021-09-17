@@ -8,11 +8,11 @@ import styles from './Button.module.css'
 const Button: React.FunctionComponent = () =>{
     const buttonState = {...buttonInitialState.customStyle}
     const [inlineStyle, setInlineStyle] = useState({
-        borderRadius: buttonState.borderRadius,
-        borderWidth: buttonState.borderWidth ,
+        borderRadius: buttonState.borderRadius+'px',
+        borderWidth: buttonState.borderWidth+'px' ,
         borderStyles: buttonState.borderStyles,
-        width: buttonState.width,
-        height: buttonState.height,
+        width: buttonState.width+'rem',
+        height: buttonState.height+'rem',
         color: buttonState.color,
         backgroundColor: buttonState.backgroundColor,
         boxShadow: buttonState.boxShadowHorizontal + 'px' + ' ' + buttonState.boxShadowVertical + 'px'
