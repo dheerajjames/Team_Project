@@ -4,8 +4,15 @@ import { BUTTON, CARD } from "../../app/componentConstants";
 
 export const cardInitialState = {
     customStyle:{
-        borderRadius: '10',
-        borderWidth: '0'
+        borderRadius: 10,
+        borderWidth: 1,
+        borderStyles:"solid",
+        width:18,
+        height:"fit-content",
+        color:"black",
+        backgroundColor:"white",
+        boxShadowHorizontal:0,
+        boxShadowVertical:0,
     }
 }
 
@@ -13,22 +20,17 @@ export const buttonInitialState = {
     
     customStyle:{
         borderRadius: '30',
-        borderWidth: '0'
+        borderWidth: '0',
+        borderStyles:"solid",
+        width:18,
+        height:"fit-content",
+        color:"black",
+        backgroundColor:"white",
+        boxShadowHorizontal:0,
+        boxShadowVertical:0,
     }
 }
 
-// export const cardSlice = createSlice({
-//     name: 'card',
-//     initialState,
-//     reducers: {
-//         setBorderRadius: (state, action) => {
-//             state.borderRadius = action.payload
-//         },
-//         setBorderWidth: (state, action) => {
-//             state.borderWidth = action.payload
-//         }
-//     }
-// });
 
 const createComponentSlice = (config:{name: string, initialState: any}) => {
     let {name, initialState} = config
@@ -36,13 +38,6 @@ const createComponentSlice = (config:{name: string, initialState: any}) => {
         name,
         initialState,
         reducers: {
-            // setBorderRadius: (state, action) => {
-            //     state.borderRadius = action.payload
-            // },
-            // setBorderWidth: (state, action) => {
-            //     state.borderWidth = action.payload
-            
-            // },
             setComponentProperty: (state, action) => {
                 state.customStyle = action.payload
             }
@@ -54,25 +49,10 @@ export const cardSlice = createComponentSlice({name: CARD, initialState: cardIni
 export const buttonSlice = createComponentSlice({name: BUTTON, initialState: buttonInitialState});
 
 
-// export const buttonSlice = createSlice({
-//     name: 'button',
-//     initialState,
-//     reducers: {
-//         setBorderRadius: (state, action) => {
-//             state.borderRadius = action.payload
-//         },
-//         setBorderWidth: (state, action) => {
-//             state.borderWidth = action.payload
-//         }
-//     }
-// });
-
-// export const { setBorderRadius, setBorderWidth } = cardSlice.actions;
-// export const { setBorderRadius, setBorderWidth } = buttonSlice.actions
-
 export const cardActions = cardSlice.actions;
 export const buttonActions = buttonSlice.actions;
 
 // export default cardSlice.reducer;
 export const cardReducer = cardSlice.reducer;
 export const buttonReducer = buttonSlice.reducer;
+

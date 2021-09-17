@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-// import ActiveComponentColumn from './components/ActiveComponentColumn/ActiveComponentColumn';
+
+// import Modal from './components/Modal/Modal';
 // import Card from './components/Card/Card';
+
 import CodeSnippet from './components/Code/Code';
 import { ComponentColumn } from './components/ComponentsColumn/ComponentsColumn';
 import Input from './components/Input/Input';

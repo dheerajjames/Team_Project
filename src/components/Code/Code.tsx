@@ -7,19 +7,31 @@ const CodeSnippet = () => {
     const codeContent = useSelector((state: RootState) => state.card);
     
     const [codeSnippet, setCodeSnippet] = useState(
-                                                `.cardContainer{\n
-                                                \tborder-width: ${codeContent.customStyle.borderWidth}px
-                                                \tborder-radius: ${codeContent.customStyle.borderRadius}px
-                                                }
-                                            `);
+                        `.container{
+                            border-width: ${codeContent.customStyle.borderWidth}px
+                            border-radius: ${codeContent.customStyle.borderRadius}px
+                            border-style: ${codeContent.customStyle.borderStyles}px
+                            color: ${codeContent.customStyle.color}
+                            background-color: ${codeContent.customStyle.backgroundColor}
+                            height: ${codeContent.customStyle.height}rem
+                            width: ${codeContent.customStyle.width}rem
+                            box-shadow: ${codeContent.customStyle.boxShadowHorizontal}px  ${codeContent.customStyle.boxShadowVertical}px
+                        }`)
+                                                
 
     useEffect(()=>{
         setCodeSnippet(
-            `.cardContainer{\n
-                \tborder-width: ${codeContent.customStyle.borderWidth}px
-                \tborder-radius: ${codeContent.customStyle.borderRadius}px
-                }
-            `)
+
+            `.container{
+                border-width: ${codeContent.customStyle.borderWidth}px
+                border-radius: ${codeContent.customStyle.borderRadius}px
+                border-style: ${codeContent.customStyle.borderStyles}px
+                color: ${codeContent.customStyle.color}
+                background-color: ${codeContent.customStyle.backgroundColor}
+                height: ${codeContent.customStyle.height}rem
+                width: ${codeContent.customStyle.width}rem
+                box-shadow: ${codeContent.customStyle.boxShadowHorizontal}px  ${codeContent.customStyle.boxShadowVertical}px
+            }`)
     }, [codeContent]);
 
     // console.log(codeSnippet)

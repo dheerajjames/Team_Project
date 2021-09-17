@@ -5,28 +5,34 @@ import styles from './Card.module.css';
 
 const Card: React.FC = () => {
 
-    const [inlineStyle, setInlineStyle] = useState({borderRadius: "", borderWidth: ""})
-    // const {
-    //     borderRadius,
-    //     borderWidth
-    // } = useSelector((state: RootState) => state.card);
+
+    const [inlineStyle, setInlineStyle] = useState({
+        borderRadius: "",
+        borderWidth: "" ,
+        borderStyles:"",
+        width:"",
+        height:"",
+        color:"",
+        backgroundColor:"",
+        boxShadow:""
+    });
 
     const componentStyle = useSelector((state: RootState) => state.card);
     console.log('component style',componentStyle);
 
-    // inlineStyle = {
-    //     borderRadius: borderRadius+'px',
-    //     borderWidth: borderWidth+'px'
-    // };
     useEffect(()=>{
         console.log('in useEffect of Card.tsx',componentStyle.customStyle);
         setInlineStyle({
             borderRadius: componentStyle.customStyle.borderRadius+'px',
-            borderWidth: componentStyle.customStyle.borderWidth+'px'
+            borderWidth: componentStyle.customStyle.borderWidth+'px',
+            borderStyles:componentStyle.customStyle.borderStyles+"px",
+            width:componentStyle.customStyle.width+"rem",
+            height:componentStyle.customStyle.height+"rem",
+            color:componentStyle.customStyle.color,
+            backgroundColor:componentStyle.customStyle.backgroundColor,
+            boxShadow:componentStyle.customStyle.boxShadowHorizontal+"px" + " " + componentStyle.customStyle.boxShadowVertical+"px" ,
         })
-    }, [componentStyle, componentStyle.borderRadius]);
-
-    // console.log(inlineStyle);
+    }, [componentStyle]);
 
     return(
         <div className={styles.cardContainer} style={inlineStyle}>
