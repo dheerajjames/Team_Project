@@ -4,8 +4,8 @@ import { BUTTON, CARD , MODAL} from "../../app/componentConstants";
 
 export const cardInitialState = {
     customStyle:{
-        borderRadius: 10,
-        borderWidth: 1,
+        borderRadius: '10',
+        borderWidth: '1',
         borderStyles:"solid",
         width:18,
         height:"fit-content",
@@ -20,12 +20,12 @@ export const buttonInitialState = {
     
     customStyle:{
         borderRadius: '30',
-        borderWidth: '0',
+        borderWidth: '2',
         borderStyles:"solid",
-        width:18,
+        width:'fit-content',
         height:"fit-content",
-        color:"black",
-        backgroundColor:"white",
+        color:"white",
+        backgroundColor:"blue",
         boxShadowHorizontal:0,
         boxShadowVertical:0,
     }
