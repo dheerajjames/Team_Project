@@ -3,13 +3,18 @@ import { BUTTON, CARD } from "../../app/componentConstants";
 
 
 export const cardInitialState = {
-    borderRadius: '10',
-    borderWidth: '0'
+    customStyle:{
+        borderRadius: '10',
+        borderWidth: '0'
+    }
 }
 
 export const buttonInitialState = {
-    borderRadius: '30',
-    borderWidth: '0'
+    
+    customStyle:{
+        borderRadius: '30',
+        borderWidth: '0'
+    }
 }
 
 // export const cardSlice = createSlice({
@@ -31,12 +36,15 @@ const createComponentSlice = (config:{name: string, initialState: any}) => {
         name,
         initialState,
         reducers: {
-            setBorderRadius: (state, action) => {
-                state.borderRadius = action.payload
-            },
-            setBorderWidth: (state, action) => {
-                state.borderWidth = action.payload
+            // setBorderRadius: (state, action) => {
+            //     state.borderRadius = action.payload
+            // },
+            // setBorderWidth: (state, action) => {
+            //     state.borderWidth = action.payload
             
+            // },
+            setComponentProperty: (state, action) => {
+                state.customStyle = action.payload
             }
         }}
         )

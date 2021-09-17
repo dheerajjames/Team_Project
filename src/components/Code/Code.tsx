@@ -4,25 +4,23 @@ import { RootState } from '../../app/store';
 // import styles from './Code.module.css';
 
 const CodeSnippet = () => {
-    const {
-        borderRadius,
-        borderWidth
-    } = useSelector((state: RootState) => state.card);
+    const codeContent = useSelector((state: RootState) => state.card);
+    
     const [codeSnippet, setCodeSnippet] = useState(
                                                 `.cardContainer{\n
-                                                \tborder-width: ${borderWidth}px
-                                                \tborder-radius: ${borderRadius}px
+                                                \tborder-width: ${codeContent.customStyle.borderWidth}px
+                                                \tborder-radius: ${codeContent.customStyle.borderRadius}px
                                                 }
                                             `);
 
     useEffect(()=>{
         setCodeSnippet(
-            `.cardContainer{
-            \tborder-width: ${borderWidth}px
-            \tborder-radius: ${borderRadius}px
-            }
-        `)
-    }, [borderRadius, borderWidth]);
+            `.cardContainer{\n
+                \tborder-width: ${codeContent.customStyle.borderWidth}px
+                \tborder-radius: ${codeContent.customStyle.borderRadius}px
+                }
+            `)
+    }, [codeContent]);
 
     // console.log(codeSnippet)
 

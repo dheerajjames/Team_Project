@@ -6,20 +6,25 @@ import styles from './Card.module.css';
 const Card: React.FC = () => {
 
     const [inlineStyle, setInlineStyle] = useState({borderRadius: "", borderWidth: ""})
-    const {
-        borderRadius,
-        borderWidth
-    } = useSelector((state: RootState) => state.card);
+    // const {
+    //     borderRadius,
+    //     borderWidth
+    // } = useSelector((state: RootState) => state.card);
+
+    const componentStyle = useSelector((state: RootState) => state.card);
+    console.log('component style',componentStyle);
+
     // inlineStyle = {
     //     borderRadius: borderRadius+'px',
     //     borderWidth: borderWidth+'px'
     // };
     useEffect(()=>{
+        console.log('in useEffect of Card.tsx',componentStyle.customStyle);
         setInlineStyle({
-            borderRadius: borderRadius+'px',
-            borderWidth: borderWidth+'px'
+            borderRadius: componentStyle.customStyle.borderRadius+'px',
+            borderWidth: componentStyle.customStyle.borderWidth+'px'
         })
-    }, [borderRadius, borderWidth]);
+    }, [componentStyle, componentStyle.borderRadius]);
 
     // console.log(inlineStyle);
 

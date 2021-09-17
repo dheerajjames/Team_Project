@@ -10,10 +10,10 @@ const selectInitialState = (activeComp:any) => {
     let customStyle;
     switch(activeComp){
         case CARD:
-            customStyle = {...cardInitialState};
+            customStyle = {...cardInitialState.customStyle};
             break;
         case BUTTON:
-            customStyle = {...buttonInitialState};
+            customStyle = {...buttonInitialState.customStyle};
             break;
         default:
             console.log('error')
@@ -40,12 +40,12 @@ const Input = () => {
     const activeComp = useSelector((state: RootState) => state.activeComp.activeComp);
     console.log(activeComp);
     const initialState = selectInitialState(activeComp);
-    const [customStyle, setCustomStyle] = useState({...initialState});
+    const [inputSlider, setInputSlider] = useState({...initialState});
     const actions = selectActiveCompActions(activeComp);
 
     useEffect(() => {
         const initialState = selectInitialState(activeComp);
-        setCustomStyle({...initialState});
+        setInputSlider({...initialState});
     }, [activeComp])
 
     // const {
@@ -56,33 +56,35 @@ const Input = () => {
     // console.log('state');
 
     const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        // console.log('event target',event.target.name)
-        switch(event.target.name){
-            case 'borderRadius':
+        setInputSlider({...inputSlider, [event.target.name] : event.target.value})
 
-                setCustomStyle({...customStyle, borderRadius: event.target.value});
-                break;
-            case 'borderWidth':
-                setCustomStyle({...customStyle, borderWidth: event.target.value});
-                break;
-            default:
-                console.log('Error');
-                break;
-        }
+        // console.log('event target',event.target.name)
+        // switch(event.target.name){
+        //     case 'borderRadius':
+        //         setCustomStyle({...customStyle, [event.target.name] : event.target.value})
+        //         // setCustomStyle({...customStyle, borderRadius: event.target.value});
+        //         break;
+        //     case 'borderWidth':
+        //         setCustomStyle({...customStyle, borderWidth: event.target.value});
+        //         break;
+        //     default:
+        //         console.log('Error');
+        //         break;
+        // }
     }
 
     
 
-    useEffect(()=>{
+    // useEffect(()=>{
         
-        dispatch(actions?.setBorderRadius(customStyle.borderRadius));
+    //     dispatch(actions?.setBorderRadius(customStyle.borderRadius));
         
-    }, [customStyle.borderRadius, dispatch, actions])
+    // }, [customStyle.borderRadius, dispatch, actions])
 
     useEffect(()=>{
-        dispatch(actions?.setBorderWidth(customStyle.borderWidth));
+        dispatch(actions?.setComponentProperty(inputSlider));
 
-    }, [customStyle.borderWidth, dispatch, actions]);
+    }, [inputSlider, dispatch, actions]);
     return(
         <div>
             <form className={styles.inputContainer}>
@@ -96,7 +98,7 @@ const Input = () => {
                     step="1"
                     defaultValue={initialState?.borderRadius}
                     onChange={changeHandler}
-                    value={customStyle.borderRadius}
+                    value={inputSlider.borderRadius}
                 />
                 <label htmlFor="borderRadius">Border Width</label>
                 <input 
@@ -108,7 +110,7 @@ const Input = () => {
                     step="1"
                     defaultValue={initialState?.borderWidth}
                     onChange={changeHandler}
-                    value={customStyle.borderWidth}
+                    value={inputSlider.borderWidth}
                 />
             </form>
         </div>
