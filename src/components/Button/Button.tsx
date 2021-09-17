@@ -1,23 +1,49 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import { buttonInitialState } from "../../features/card/cardSlice";
 import styles from './Button.module.css'
 
 
 const Button: React.FunctionComponent = () =>{
-    const [inlineStyle, setInlineStyle] = useState({borderRadius: "", fontSize: "", backgroundColor: ""})
+    const buttonState = {...buttonInitialState.customStyle}
+    const [inlineStyle, setInlineStyle] = useState({
+        borderRadius: buttonState.borderRadius+'px',
+        borderWidth: buttonState.borderWidth+'px' ,
+        borderStyles: buttonState.borderStyles,
+        width: buttonState.width+'rem',
+        height: buttonState.height+'rem',
+        color: buttonState.color,
+        backgroundColor: buttonState.backgroundColor,
+        boxShadow: buttonState.boxShadowHorizontal + 'px' + ' ' + buttonState.boxShadowVertical + 'px'
+    });
+
+
+    const componentStyle = useSelector((state: RootState) => state.button);
+    console.log('component style',componentStyle);
     const {
         borderRadius,
-        fontSize,
-        backgroundColor
-    } = useSelector((state: RootState) => state.button);
+        borderWidth,
+        borderStyles,
+        width,
+        height,
+        color,
+        backgroundColor,
+        boxShadowHorizontal,
+        boxShadowVertical
+    } = componentStyle.customStyle
     useEffect(()=>{
         setInlineStyle({
             borderRadius: borderRadius+'px',
-            fontSize: fontSize+'px',
+            borderWidth: borderWidth+'px',
+            borderStyles: borderStyles,
+            width: width+'rem',
+            height: height+'rem',
+            color: color,
+            boxShadow: boxShadowHorizontal + 'px' + " " + boxShadowVertical + 'px',
             backgroundColor: backgroundColor
         })
-    }, [borderRadius, fontSize, backgroundColor]);
+    }, [componentStyle]);
     return(
         <button className={styles.button} style={inlineStyle}>Click here</button>
     )

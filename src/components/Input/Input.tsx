@@ -71,7 +71,8 @@ const Input: React.FC = () => {
     const dispatch = useDispatch();
     // console.log('state');
 
-    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const changeHandler = (event:any )  => {
         setInputSlider({...inputSlider, [event.target.name] : event.target.value})
     }
     useEffect(()=>{
@@ -107,14 +108,22 @@ const Input: React.FC = () => {
                     value={inputSlider.borderWidth}
                 />
                
-                <label>Border Style
+                {/* <label>Border Style
                 <input list="borderStyles" name="borderStyles" /></label>
                 <datalist id="borderStyles">
                 <option value="solid"/>
                 <option value="dashed"/>
                 <option value="dotted"/>
                 <option value="double"/>
-                </datalist>
+                </datalist> */}
+                <label htmlFor="width">Border styles</label>
+                <select name="borderStyle"value={inputSlider.borderStyle} onChange={changeHandler}>
+                    <option value="solid">Solid</option>
+                    <option value="dashed">Dashed</option>
+                    <option value="dotted">Dotted</option>
+                    <option value="double">Double</option>
+
+                </select>
 
                 <label htmlFor="width">Width</label>
                 <input 

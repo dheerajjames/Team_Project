@@ -19,6 +19,17 @@ const Card: React.FC = () => {
 
     const componentStyle = useSelector((state: RootState) => state.card);
     console.log('component style',componentStyle);
+    // const {
+    //     borderRadius,
+    //     borderWidth,
+    //     borderStyles,
+    //     width,
+    //     height,
+    //     color,
+    //     backgroundColor,
+    //     boxShadowHorizontal,
+    //     boxShadowVertical
+    // } = componentStyle.customStyle
 
     useEffect(()=>{
         console.log('in useEffect of Card.tsx',componentStyle.customStyle);
