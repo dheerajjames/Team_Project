@@ -19,6 +19,7 @@ function App() {
         <div>
           <CodeSnippet />
         </div>
+
       </header>
     </div>
   );

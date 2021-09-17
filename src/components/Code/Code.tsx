@@ -4,9 +4,24 @@ import { RootState } from '../../app/store';
 import { BUTTON, CARD, MODAL } from '../../app/componentConstants';
 // import styles from './Code.module.css';
 
+const getActiveComponentState = (state:RootState, activeComp:string) => {
+    switch (activeComp){
+        case CARD:
+            return state.card
+        case BUTTON: 
+            return state.button
+        case MODAL:
+            return state.modal
+        default:
+            return "error"
+    }
+}
+
 const CodeSnippet = () => {
     const activeComponent=useSelector((state: RootState)=>state.activeComp)
-    const codeContent = useSelector((state: RootState) => state.card); 
+    // const codeContent = useSelector((state: RootState) => state)[`${activeComp}`];
+    const state = useSelector((state:RootState) => state);
+    const codeContent = getActiveComponentState(state, activeComponent.activeComp)
     const activeComp = useSelector((state: RootState) => state.activeComp.activeComp);
  
     const [codeSnippet, setCodeSnippet] = useState(
@@ -107,7 +122,9 @@ const CodeSnippet = () => {
                 rows={10}
                 value={reactCodeSnippet}
                 readOnly
+                wrap='hard'
             />
+
             <textarea
                 className="code"
                 name="codeSnippet" 
@@ -116,6 +133,8 @@ const CodeSnippet = () => {
                 rows={10}
                 value={codeSnippet}
                 readOnly
+                wrap='hard'
+
             />
         </div>
     )
